@@ -636,6 +636,15 @@ ldap:
 ## NOTE: To enable, grafana.ini must be configured with smtp.enabled
 ## ref: http://docs.grafana.org/installation/configuration/#smtp
 smtp:
+  enabled = true
+  host = email-smtp.us-east-1.amazonaws.com:587
+  user = plaintext_user (or base64_user) from SES config
+  password = ""plaintext_password or base64_password from SES config “”
+  ;cert_file =
+  ;key_file =
+  ;skip_verify = false
+  from_address = verified_ses_user@ses_verified.domain
+  from_name = “Test Grafana”
   # `existingSecret` is a reference to an existing secret containing the smtp configuration
   # for Grafana.
   existingSecret: ""
